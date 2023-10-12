@@ -1,0 +1,59 @@
+#配置端口
+server:
+  port: 8001
+
+
+spring:
+  datasource:
+#    druid:
+      url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 12345678
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      #连接池配置
+
+      #初始化连接数目
+      initial-size: 1
+      #连接池支持的最大连接数。一般取值20就可以了，一般把maxActive设置成可能的并发量就行了设 0 为没有限制。
+      max-active: 20
+      #连接池中最小空闲连接数，当连接数少于此值时，连接池会创建连接来补充到该值的数量
+      min-idle: 5
+      #连接池中连接用完时,新的请求等待时间,毫秒，这里取值-1，表示无限等待，直到超时为止，也可取值9000，表示9秒后超时。
+      max-wait: 1000
+      #是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql下建议关闭。
+      pool-prepared-statements: true
+      #PSCache 大小
+      max-pool-prepared-statement-per-connection-size: 20
+      #在连接池返回连接给调用者前用来对连接进行验证的查询 SQL，要求为一条查询语句
+      validation-query: SELECT 'x'
+      #在连接池返回连接给调用者前用来对连接进行验证的查询 SQL的超时时间
+      validation-query-timeout: 100
+      #申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-borrow: false
+      #归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-return: false
+      #建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+      test-while-idle: true
+      #每timeBetweenEvictionRunsMillis毫秒检查一次连接池中空闲的连接,把空闲时间超过minEvictableIdleTimeMillis毫秒的连接断开,直到连接池中的连接数到minIdle为止
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      max-evictable-idle-time-millis: 90000
+      #属性类型是字符串，通过别名的方式配置扩展插件，常用的插件有：
+      #监控统计用的filter:stat日志用的filter:log4j防御sql注入的filter:wall
+      filters: stat,slf4j,wall
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 合并多个DruidDataSource的监控数据
+      useGlobalDataSourceStat: true
+  main:
+    allow-bean-definition-overriding: true
+mybatis-plus:
+  datasource: dataSource
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #别名扫描
+  typeAliasesPackage: com.hzau.*.entity
+
+
+
+
+
