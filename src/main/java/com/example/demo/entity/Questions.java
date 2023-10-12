@@ -1,15 +1,18 @@
-package com.example.demo.mapper;
+package com.example.demo.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-@TableName("Questions")
+@TableName("myquestions")
 public class Questions {
 
-    @TableId("_id")
+    @TableId(type = IdType.AUTO)
+    @ApiModelProperty(value = "主键")
     private Integer _id;
     @TableField("surveyId")
     private String surveyId;

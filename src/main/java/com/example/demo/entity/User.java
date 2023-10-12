@@ -1,4 +1,4 @@
-package com.example.demo.mapper;
+package com.example.demo.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -7,7 +7,6 @@ import lombok.Data;
 @Data
 @ApiModel("创建Swagger请求参数")
 public class User {
-
 
     @ApiModelProperty("id")
     private Integer id;

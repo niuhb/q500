@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.mapper.User;
+import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.vo.Page;
 import io.swagger.annotations.Api;
@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-@Api(value = "用户接口1", tags = {"用户接口1"})
+@Api(value = "用户接口", tags = {"用户接口"})
 @RequestMapping("/user")
 public class UserController {
     @Resource
