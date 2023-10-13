@@ -25,7 +25,7 @@ public class Surveies {
     @TableField("date")
     private String date;
 
-    @TableField("change")
+    @TableField("`change`")
     private String change;
 
     @TableField("title")
