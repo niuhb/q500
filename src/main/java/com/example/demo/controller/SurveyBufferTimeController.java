@@ -45,7 +45,7 @@ public class SurveyBufferTimeController {
     @ApiOperation("删除")
     @PostMapping("/delete")
     public Result<?> deleteSurveyBufferTime(@RequestBody SurveyBufferTime surveyBufferTime) {
-        boolean flag = surveyBufferTimeService.removeById(surveyBufferTime.getIdd());
+        boolean flag = surveyBufferTimeService.removeById(surveyBufferTime.get_id());
         return Result.ok(flag);
     }
 

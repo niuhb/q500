@@ -13,7 +13,7 @@ import lombok.Data;
 public class SurveyBufferTime {
     @TableId(type = IdType.AUTO, value = "_id")
     @ApiModelProperty(value = "主键")
-    private Integer idd;
+    private Integer _id;
 
 
     @TableField("id")
